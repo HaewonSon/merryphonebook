@@ -1,0 +1,36 @@
+{% load static %}
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/phonebook/main.css'%}">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');</style>
+  <style>@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');</style>
+  <meta charset="UTF-8">
+  <title>MerryPhonebook_LogIn</title>
+</head>
+<br>
+<h1>
+  MerryPhonebook
+</h1>
+<br>
+<body>
+<p>
+  Welcome! Please Log In.
+</p>
+<form action="{% url 'users:main' %}" method="post">
+  {% csrf_token %}
+  <div class="input-box">
+    <input type="input" name="username" placeholder="ID"></input>
+  </div>
+  <br>
+  <div class="input-box">
+    <input type="password" name="password" placeholder="Password"></input>
+  </div>
+  <br>
+  <div>
+    <input class="submit" type="submit" value="LogIn"></input>
+  </div>
+  <br>
+  <a href="{% url 'users:signup' %}">Sign Up</a>
+
+</form>
+
+</body>

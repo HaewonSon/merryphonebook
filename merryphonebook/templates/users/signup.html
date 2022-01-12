@@ -1,0 +1,27 @@
+{% load static %}
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/phonebook/main.css'%}">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');</style>
+  <meta charset="UTF-8">
+  <title>MerryPhonebook_SignUp</title>
+</head>
+<h1>Sign Up</h1>
+<body>
+<form action="{% url 'users:signup'%}" method="post">
+    {% csrf_token %}
+    {% for field in form %}
+    <div class="fieldWrapper">
+        {{ field.errors }}
+        <br>
+        {{ field.label_tag }} {{ field }}
+        <br>
+    </div>
+    {% endfor %}
+    <br>
+    <input class="submit" type="submit" value="Sign Up">
+</form>
+
+<a href="{% url 'users:main' %}">Log In</a>
+
+</body>
+</html>

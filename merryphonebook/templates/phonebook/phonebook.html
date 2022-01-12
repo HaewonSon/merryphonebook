@@ -1,0 +1,46 @@
+{% load static %}
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/phonebook/main.css'%}">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');</style>
+  <meta charset="UTF-8">
+  <title>MerryPhonebook_Phonebook</title>
+</head>
+<br>
+<h1>{{ request.user }}'s Phonebook</h1>
+<br>
+<body>
+<a href="{% url 'phonebook:member_create' %}">Add Member</a>
+<br>
+<div>
+    <!-- 연락처 리스트 테이블  -->
+    <table class="table"
+           border="0"
+           align="center"
+    >
+      <th width="90" height="40" bgcolor="orange">no.</th>
+      <th width="90" height="40" bgcolor="orange">name</th>
+      <th width="90" height="40" bgcolor="orange">phone</th>
+      <th width="90" height="40" bgcolor="orange">address</th>
+      <th width="90" height="40" bgcolor="orange">category</th>
+      <th width="90" height="40" bgcolor="orange">update</th>
+      <th width="90" height="40" bgcolor="orange">delete</th>
+      {% for index in phonebook %}
+      <tr align="center">
+        <td width="80" height="50">{{ index.id }}</td>
+        <td width="80" height="50">{{ index.memberName }}</td>
+        <td width="80" height="50">{{ index.phoneNum }}</td>
+        <td width="80" height="50">{{ index.address }}</td>
+        <td width="80" height="50">{{ index.category_id }}</td>
+        <td width="80" height="50"><a href="{% url 'phonebook:member_update' index.id %}" >Update</a></td>
+        <td width="80" height="50"><a href="{% url 'phonebook:member_delete' index.id %}" >Delete</a></td>
+      </tr>
+      {% endfor %}
+    </table>
+
+</div>
+<br>
+<br>
+<!-- 로그아웃 -->
+<a href="{% url 'users:main' %}">Log Out</a>
+</body>
+</html>

@@ -1,0 +1,25 @@
+.input-box{
+  outline: none;
+  border-radius: 5px;
+  font-family: 'Acme', sans-serif;
+
+}
+
+.submit {
+  width: 65px;
+  height: 30px;
+  outline: none;
+  background: orange;
+  border: none;
+  border-radius: 9px;
+  font-family: 'Acme', sans-serif;
+}
+
+body{
+  display:flex;
+  align-items:center;
+  text-align:center;
+  flex-direction: column;
+  justify-content: center;
+  font-family: 'Acme', sans-serif;
+}

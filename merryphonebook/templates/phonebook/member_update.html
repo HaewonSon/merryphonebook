@@ -1,0 +1,28 @@
+{% load static %}
+<head>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/phonebook/main.css'%}">
+  <style>@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');</style>
+  <meta charset="UTF-8">
+  <title>MerryPhonebook_MemberUpdate</title>
+</head>
+<body>
+<h1>Update Member</h1>
+
+<div class="member-update">
+    <div>
+        연락처 수정
+    </div>
+
+    <div class="form">
+        <!-- 연락처 폼 -->
+        <form action="{% url 'phonebook:member_update' phonebook.id %}"
+            method="post"
+            enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input class="submit" type="submit" value="Update">
+        </form>
+    </div>
+</div>
+</body>
+</html>
